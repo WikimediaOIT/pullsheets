@@ -1,0 +1,12 @@
+# python pyc
+*.pyc
+
+# secrets and configs
+secrets.json
+pullsheets_config.py
+
+# pickle files
+pullsheets.pkl*
+
+# emacs turds
+*~
