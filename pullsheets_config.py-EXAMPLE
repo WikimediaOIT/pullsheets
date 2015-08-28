@@ -1,0 +1,41 @@
+# Config file EXAMPLE for pullsheets
+
+# json secrets file
+json_file="secrets.json"
+
+
+# List of data sources and formatting hints
+# structure:  (row numbers start at 0)
+"""
+'DocName' : {
+    'SheetName' :
+       { 'Field name A': RowNumber1,
+         'Field name B': RowNumber2
+       }
+}
+"""
+
+sheetlist = {
+    'Pies': {
+        'Eaten' :
+            {'Flavor': 1,
+             'Date' : 2,
+             },
+        'To Eat':
+            {'Flavor': 1,
+             'Location' : 2,
+             },
+        },
+    'Cakes': {
+        'Eaten' :
+            {'Flavor': 3,
+             'Location': 7,
+             'Date' : 8,
+             },
+        'To Eat' :
+            {'Flavor': 3,
+             'Location': 9,
+             'Priority': 15
+             },
+    }
+}
