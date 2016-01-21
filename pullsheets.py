@@ -11,7 +11,7 @@ import json
 from oauth2client.client import SignedJwtAssertionCredentials
 
 import unicodedata
-
+import sys
 import cPickle as pickle
 import time
 picklefile = 'pullsheets.pkl'
@@ -60,11 +60,21 @@ for spreadsheet in sheetlist:
 
             # Decode fields and store values
             for field,location in sheetlist[spreadsheet][subsheet].items():
-                output[field] = row[location].strip()
+                try:
+                    if len(row[location].strip())>0:
+                        output[field] = row[location].strip()
+                except:
+                    print(row)
+                    print('Error parsing', field, location)
+                    sys.exit(2)
 
             # Bounds checking, ignore this row
+            if 'FirstName' not in output: continue
+            if 'LastName' not in output: continue
+
             if output['FirstName'] == 'First Name': continue
             if len(output['FirstName']) == 0: continue
+
             if len(output['LastName']) == 0: continue
 
 
